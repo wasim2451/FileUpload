@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload</title>
+    <style>
+        body {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h2> Uploading Files through Multer </h2>
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <label for="UploadFile">
+            <input type="file" name="fileName">
+            <button type="submit">Submit</button>
+        </label>
+    </form>
+    <div id="canvas">
+        <% if (imgArray&&imgArray.length>0) {%>
+            <% imgArray.forEach((imgPath)=>{%>
+                <div>
+                    <img src="/<%= imgPath.replace(/\\/g, '/') %>" alt="Uploaded Image" width="300" height="300"/>
+                </div>
+
+            <% }) %>
+        <% }else {%>
+            <p>No Images Uploaded Yet ..</p>
+        <% } %>
+    </div>
+</body>
+
+</html>
